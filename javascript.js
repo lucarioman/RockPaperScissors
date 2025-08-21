@@ -17,10 +17,44 @@ function getComputerChoice() {
     }
 }
 
+
 function getHumanChoice() {
-    const input = prompt()
-    console.log("Human Choose " + input);
-    return input;
+    const buttons = document.querySelectorAll("button");
+
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+        // and for each one we add a 'click' listener
+        button.addEventListener("click", () => {
+            if (button.innerText != undefined)
+                console.log(button.innerText);
+                return button.innerText;
+        });
+    });
+}
+
+const buttons = document.querySelectorAll("button");
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener("click", () => {
+    playRound(button.innerText, getComputerChoice())
+    if (humanScore === 5) {
+        alert("You Won the Game! Beating the Computer: " + humanScore + " to " + computerScore);
+    }
+    else if (computerScore === 5) {
+        alert("You Lost the Game! Losing to the Computer: " + computerScore + " to " + humanScore);
+    }
+    setScores();
+  });
+});
+
+function setScores() {
+    const humanScoreElement = document.querySelector("#human");
+    const computerScoreElement = document.querySelector("#computer");
+
+    humanScoreElement.innerText = "Human: " + humanScore.toString() ;
+    computerScoreElement.innerText = "Computer: " + computerScore.toString();
 }
 
 let humanScore = 0;
@@ -66,4 +100,7 @@ function playGame() {
     }
 }
 
-playGame();
+function playMatch() {
+    //playRound(getHumanChoice(), getComputerChoice());
+}
+//playGame();

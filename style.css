@@ -1,0 +1,28 @@
+.answers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: auto;
+}
+
+button {
+    width: 140px;
+    font-size: 22px;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border-color: black;
+    padding: 32px;
+    border: 2px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
